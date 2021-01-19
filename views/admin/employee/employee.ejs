@@ -1,0 +1,32 @@
+<%- include('../../partials/header')%>
+
+    <body>
+        <%- include('../../partials/navbar')%>
+            <div class="container">
+                <div class="card mt-5">
+                    <div class="card-header text-white bg-primary">
+                        <h3>Cadastro de Funcionários</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/funcionario/save" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Função" name="funcao" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Posto" name="posto" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Setor" name="setor" required>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </body>
+    <%- include('../../partials/footer')%>

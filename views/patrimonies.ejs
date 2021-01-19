@@ -1,0 +1,19 @@
+<%- include('./partials/header')%>
+<%- include('./partials/homeNavbar')%>
+
+<body>
+    <div class="container">
+        <h1>Página Descrição patrimonio</h1>
+        <div class="card mt-5">
+            <div class="card-header">
+                <h4><%= patrimonies.nome%></h4>
+            </div>
+            <div class="card-body">
+                <p><%= patrimonies.descricao%></p>
+                <p>Modelo: <%= patrimonies.modelo%></p>
+                <p>Tombamento: <%= patrimonies.tombamento%></p>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('./partials/footer')%>

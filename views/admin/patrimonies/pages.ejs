@@ -1,0 +1,46 @@
+<%- include('../../partials/header')%>
+    <%- include('../../partials/homeNavbar')%>
+
+        <body>
+            <div class="container mt-5">
+                <table class="table table-hover table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Equipamento</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Tombamento</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Proprietário</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% result.patrimonies.rows.forEach( item=> {%>
+                            <tr>
+                                <td>
+                                    <%= item.nome%>
+                                </td>
+                                <td>
+                                    <%= item.modelo%>
+                                </td>
+                                <td>
+                                    <%= item.tombamento%>
+                                </td>
+                                <td>
+                                    <%= item.quantidade%>
+                                </td>
+                                <td>
+                                    <%= item.employee.nome%>
+                                </td>
+
+                                <td style="display: flex; justify-content: center;">
+                                    <a class="btn btn-secondary" href="/description/<%= item.id%>">Mais</a>
+                                </td>
+                            </tr>
+                            <%})%>
+                    </tbody>
+                </table>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer')%>

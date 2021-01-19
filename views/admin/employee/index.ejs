@@ -1,0 +1,65 @@
+<%- include('../../partials/header')%>
+
+    <body>
+        <%- include('../../partials/navbar')%>
+            <div class="container mt-3">
+                <h3>Colaboradores</h3>
+                <a class="btn btn-success mb-3" href="/admin/funcionarios">Cadastro Funcionário</a>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Função</th>
+                            <th>Posto</th>
+                            <th>Setor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% employees.forEach( item=> {%>
+                            <tr>
+                                <td>
+                                    <%=item.id%>
+                                </td>
+                                <td>
+                                    <%=item.nome%>
+                                </td>
+                                <td>
+                                    <%=item.funcao%>
+                                </td>
+                                <td>
+                                    <%=item.posto%>
+                                </td>
+                                <td>
+                                    <%=item.setor%>
+                                </td>
+                                <td class="d-flex justify-content-around">
+                                    <a href="/admin/employees/edit/<%= item.id %>" class="btn btn-warning">Editar</a>
+                                    <form action="/employees/delete" method="POST"
+                                        onsubmit="confirmarDelete(event, this)">
+                                        <input type="hidden" name="id" value="<%=item.id%>">
+                                        <button class="btn btn-danger">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%})%>
+                    </tbody>
+                </table>
+            </div>
+    </body>
+    <%- include('../../partials/footer')%>
+
+        <script>
+            function confirmarDelete(event, form) {
+                event.preventDefault();
+                let decision = confirm('Você tem certeza');
+
+                if (decision) {
+                    form.submit();
+                } else {
+                    console.log('Você desistiu')
+                }
+            }
+        </script>
